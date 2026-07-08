@@ -5,7 +5,10 @@ const errorMiddleware = (err, req, res, next) => {
     if (err instanceof ZodError) {
         return res.status(400).json({
             success: false,
-            message: err.errors[0].message
+            errors: err.issues.map(issue => ({
+                field: issue.path[0],
+                message: issue.message
+            }))
         });
     }
 
@@ -13,6 +16,7 @@ const errorMiddleware = (err, req, res, next) => {
         success: false,
         message: err.message || "Internal Server Error"
     });
+
 };
 
 export default errorMiddleware;
