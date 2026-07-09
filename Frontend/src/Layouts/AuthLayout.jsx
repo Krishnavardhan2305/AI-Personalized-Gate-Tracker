@@ -1,20 +1,28 @@
-import { BrainCircuit, CheckCircle2 } from "lucide-react";
-
+import { ArrowLeft, BrainCircuit, CheckCircle2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 const features = [
     "AI Powered Study Planner",
     "Unlimited AI Quiz Generation",
     "Track Subject Progress",
 ];
-
 const AuthLayout = ({ title, subtitle, children }) => {
+    const navigate=useNavigate();
 
     return (
 
         <div className="min-h-screen grid lg:grid-cols-2">
-
             {/* Left */}
 
             <div className="hidden lg:flex flex-col justify-center bg-gradient-to-br from-blue-700 via-blue-600 to-indigo-700 text-white p-16">
+                {/* Back Button */}
+                <button
+                    type="button"
+                    onClick={() => navigate("/")}
+                    className="absolute top-8 left-8 flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-lg text-white hover:bg-white hover:text-blue-700 transition-all duration-300 shadow-md cursor-pointer"
+                >
+                    <ArrowLeft size={18} />
+                    <span className="font-medium">Back</span>
+                </button>
 
                 <div className="flex items-center gap-4">
 
@@ -49,7 +57,7 @@ const AuthLayout = ({ title, subtitle, children }) => {
 
                     {
 
-                        features.map((item)=>(
+                        features.map((item) => (
 
                             <div
                                 key={item}
@@ -94,7 +102,7 @@ const AuthLayout = ({ title, subtitle, children }) => {
 
                     </p>
 
-                    <div className="mt-8">
+                    <div className="mt-8 text-xl font-semibold text-black">
 
                         {children}
 
