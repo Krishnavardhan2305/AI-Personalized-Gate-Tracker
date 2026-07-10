@@ -1,7 +1,8 @@
 import asyncHandler from "../utils/asyncHandler.js";
 import authService from "../services/auth.service.js";
 import cookieOptions from "../config/cookie.js";
-export const signup = asyncHandler(async (req, res) => {
+export const signup = asyncHandler(async (req, res) => 
+{
     const {user,accessToken,refreshToken} = await authService.signup(req.validatedData);
     res.cookie("refreshToken",refreshToken,cookieOptions).status(201).json
     ({

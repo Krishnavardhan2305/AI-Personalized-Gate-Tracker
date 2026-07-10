@@ -25,11 +25,5 @@ app.use(compression());
 
 app.use(morgan("dev"));
 app.use("/api/auth", authRoutes);
-// app.get("/", (req, res) => {
-//     res.json({
-//         success: true,
-//         message: "Gate AI Tracker Backend Running"
-//     });
-// });
 app.use(errorMiddleware);
 export default app;
