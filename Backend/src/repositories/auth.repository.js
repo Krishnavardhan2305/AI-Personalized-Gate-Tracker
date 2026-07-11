@@ -8,7 +8,13 @@ class AuthRepository {
             where: {email}
         });
     }
-
+    async verifyEmail(userId) 
+    {
+        return await prisma.user.update({
+            where: {id: userId},
+            data: {emailVerified: true}
+        });
+    }
     async createUser(data) {
         return await prisma.user.create({data});
     }

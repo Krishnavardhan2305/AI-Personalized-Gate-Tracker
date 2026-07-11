@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import AuthLayout from "../Layouts/AuthLayout";
@@ -8,6 +8,7 @@ import AuthButton from "../components/AuthButton";
 import useForm from "../hooks/useForm";
 import authservice from "../services/authservice";
 const Signup = () => {
+    const navigate = useNavigate();
     const { formData, handleChange, resetForm } = useForm({
         email: "",
         password: "",
@@ -34,9 +35,15 @@ const Signup = () => {
 
             toast.success(response.message);
             resetForm();
+            navigate("/verify-email",
+                {
+                    state: {
+                        email:formData.email
+                    }
+                }
+            );
         }
-        catch (err)
-        {
+        catch (err) {
             console.error(err);
             toast.error(
                 err.response?.data?.message ||

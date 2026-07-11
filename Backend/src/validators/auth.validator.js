@@ -47,3 +47,13 @@ export const resetPasswordSchema = z.object({
         .string()
         .min(8, "Password must be at least 8 characters")
 });
+
+export const verifyEmailSchema = z.object({
+    email: z
+        .string()
+        .trim()
+        .email("Invalid email address"),
+    otp: z
+        .string()
+        .length(6, "OTP must be 6 digits")
+});

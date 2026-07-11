@@ -24,3 +24,17 @@ export const sendOTPEmail = async (email, otp) => {
         `
     });
 };
+
+export const sendVerificationEmail = async (email, otp) => {
+    await transporter.sendMail({
+        from: `"GateAI" <${process.env.EMAIL_USER}>`,
+        to: email,
+        subject: "Verify your GateAI account",
+        html: `
+            <h2>Email Verification</h2>
+            <p>Your verification code is</p>
+            <h1>${otp}</h1>
+            <p>This OTP expires in 10 minutes.</p>
+        `
+    });
+};

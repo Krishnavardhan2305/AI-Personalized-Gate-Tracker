@@ -5,6 +5,12 @@ class AuthService {
         const response = await api.post("/auth/signup", data);
         return response.data;
     }
+    async verifyEmail(data) {
+        const response = await api.post(
+            "/auth/verify-email",data
+        );
+        return response.data;
+    }
     async login(data) {
         const response = await api.post("/auth/login", data);
         return response.data;
@@ -20,8 +26,7 @@ class AuthService {
 
     }
 
-    async resetPassword(data) 
-    {
+    async resetPassword(data) {
         const response = await api.post(
             "/auth/reset-password",
             data
