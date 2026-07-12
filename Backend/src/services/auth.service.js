@@ -8,7 +8,8 @@ import { sendOTPEmail, sendVerificationEmail } from "../utils/mail.js";
 import { OTPType } from "@prisma/client";
 import bcrypt from "bcrypt";
 class AuthService {
-    async signup(data) {
+    async signup(data) 
+    {
         const { email, password, gateTargetYear } = data;
         const existingUser = await authRepository.findUserByEmail(email);
         if (existingUser) {

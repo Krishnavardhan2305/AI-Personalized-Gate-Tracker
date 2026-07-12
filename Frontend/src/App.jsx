@@ -6,7 +6,7 @@ import Login from './Pages/Login';
 import ForgotPassword from './Pages/ForgotPassword';
 import ResetPassword from './Pages/ResetPassword';
 import VerifyEmail from './Pages/VerifyEmail';
-import DashBoardHome from './Pages/DashBoardHome';
+import DashBoardHome from './Pages/Dashboard/DashBoardHome';
 
 const App = () => {
   return (

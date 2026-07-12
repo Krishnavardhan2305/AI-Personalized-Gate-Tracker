@@ -40,7 +40,8 @@ class AuthRepository {
     // ==========================
     // OTP
     // ==========================
-    async createOTP(userId, otp, type, expiresAt) {
+    async createOTP(userId, otp, type, expiresAt) 
+    {
         return await prisma.oTP.create({
             data: {
                 userId,

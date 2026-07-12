@@ -19,7 +19,7 @@ const Login = () => {
             setLoading(true);
             const response = await authService.login(formData);
             toast.success(response.message);
-            console.log(response);
+            // console.log(response);
             resetForm();
             navigate("/dashboard");
         }

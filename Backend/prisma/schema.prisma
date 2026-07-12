@@ -21,6 +21,7 @@ model User {
   updatedAt      DateTime @updatedAt
   otps           OTP[]
   refreshTokens  RefreshToken[]
+  dailyTasks DailyTask[]
 }
 
 model OTP {
@@ -50,3 +51,16 @@ enum OTPType {
   EMAIL_VERIFICATION
   PASSWORD_RESET
 } 
+
+model DailyTask {
+
+  id          String      @id @default(cuid())
+  userId      String
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title       String
+  description String?
+  completed   Boolean     @default(false)
+  expiresAt   DateTime
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
