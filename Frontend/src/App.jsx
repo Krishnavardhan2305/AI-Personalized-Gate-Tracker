@@ -7,6 +7,7 @@ import ForgotPassword from './Pages/ForgotPassword';
 import ResetPassword from './Pages/ResetPassword';
 import VerifyEmail from './Pages/VerifyEmail';
 import DashBoardHome from './Pages/Dashboard/DashBoardHome';
+import SubjectPage from './Pages/Subjects/SubjectPage';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/dashboard" element={<DashBoardHome />} />
+          <Route path="/subjects/:slug" element={<SubjectPage />} />
         </Routes>
       </BrowserRouter>
     </div>
